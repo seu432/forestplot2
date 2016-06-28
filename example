@@ -1,0 +1,8 @@
+library(forestplot)
+cochrane_from_rmeta <- 
+    structure(list(mean  = c(NA, NA, 5.58, 5.83, 3.80, 4.2, 4.98, 3.0, 2.1, 4.25, 5.11, 3.80, 4.90, 4.3, 5.9, 4.5, 5.4, 3, 3.8, NA, 4.38), lower = c(NA, NA, 3.71, 5.23, 2.80, 3.2, 3.73, 2.50, 1.80, 3.67, 4.87, 2.90, 4.3, 3.8, 2.9, 1.8, 3.3, 1.60, 3, NA, 2.8), upper = c(NA,NA, 7.45, 6.43, 4.80, 5.2, 6.23, 3.50, 2.4, 4.83, 5.35, 5, 5.4, 4.8, 11.6, 11.6, 8.6, 4.4, 4.6, NA, 6.45)),.Names = c("mean", "lower", "upper"), row.names = c(NA, -21L), class = "data.frame")
+
+tabletext<-cbind(c("", "Study", "Wara et al. 1973*", "Hornsey et al. 1975*", "Field et al. 1976", "Travis et al. 1983", "Travis et al. 1983", "Parkins et al. 1985", "Parkins et al. 1985", "Parkins et al. 1985*", "Parkins et al. 1985*", "Vegesna et al. 1985", "Travis et al. 1987", "Travis et al. 1987", "Travis et al. 1987", "Travis et al. 1987", "Travis et al. 1987", "Van der Kogel et al. 1988*", "Van Rongen et al 1993", NA, "Summary"),
+c("", "α/β ratio", "5.58±1.87", "5.83±0.60", "2.80-4.80","4.20±1.00", "4.98±1.25", "3.00±0.50", "2.10±0.30", "4.25±0.58","5.11±0.24", "3.8(2.9-5.0)","4.9(4.3-5.4)", "4.3(3.8-4.8)", "5.9(2.9-11.6)","4.5(1.8-11.6)", "5.4(3.3-8.6)", "3.00±1.40", "3.8(3.0-4.6)", NA, "4.38±1.06"),  c("", "Endpoint", "LD50", "LD50", "LD50","LD50", "B.R.", "B.R.", "LD50", "B.R.","LD50", "LD50","B.R.", "B.R./LD50", "B.R.","B.R.", "LD50", "ED50", "B.R.", NA, NA))
+
+forestplot(tabletext, cochrane_from_rmeta,new_page = TRUE,graph.pos = 4,hrzl_lines = gpar(col="#444444"),is.summary=c(TRUE, TRUE,rep(FALSE,18),TRUE),boxsize=c(0, 0, 0.3,0.3,0,rep (0.3,15), 1),clip=c(1,12), align = c("l","l"), col=fpColors(box="black",line="black", summary="black"),vertices = TRUE,cex=0,zero=4.38)
